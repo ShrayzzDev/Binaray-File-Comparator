@@ -1,4 +1,4 @@
-# Binaray-File-Comparator
+# Binary-File-Comparator
 Compare 2 binary files to check if they're the same.
 
 Input the path to 2 binary, and it will check every byte to see if they are the same. 
