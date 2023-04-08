@@ -19,11 +19,11 @@ int main (void)
     cout << path1 << endl;
     cout << "Path of the second binary file: ";
     cin >> path2;
-    cout << "Do you want it going through all the file ? (no exit when it finds a differance)";
+    cout << "Do you want it going through all the file ? (no exit when it finds a differance): ";
     cin >> yes_or_not;
     while (yes_or_not != "Yes" && yes_or_not != "yes" && yes_or_not != "y" && yes_or_not != "No" && yes_or_not != "no" && yes_or_not != "n")
     {
-        cout << "Wrong input, Do you want it going through all the file ?";
+        cout << "Wrong input, Do you want it going through all the file ?: ";
         cin >> yes_or_not;
     }
     
@@ -55,19 +55,18 @@ int main (void)
     while(! first_file.eof() && ! second_file.eof())
     {
         unsigned short first_bin, second_bin;
-        cout << "bip bip je passe" << endl;
         first_file.read((char *)&first_bin, sizeof(unsigned short));
         swapByteOrder(first_bin);
         second_file.read((char *)&second_bin, sizeof(unsigned short));
         if (first_bin != second_bin){
             cout << "At offset " << hex << (first_file.tellg() - 2) << " ( " << hex << (second_file.tellg() - 2)
-            << " ) the byte is " << hex << first_bin << "in the first file, and " << hex << second_bin << " in the second one" << endl;
+            << " ) the byte is " << hex << first_bin << " in the first file, and " << hex << second_bin << " in the second one" << endl;
             if (save_diffrences.is_open()){
                 string to_write = to_string(first_file.tellg() - 2) + " " + to_string(first_bin) + " " + to_string(second_bin) + "\n";
                 const char* to_write_char = to_write.c_str();
                 save_diffrences.write(to_write_char,to_write.size());
             }
-            if (yes_or_not != "No" || yes_or_not != "no" || yes_or_not != "n")
+            if (yes_or_not == "No" || yes_or_not == "no" || yes_or_not == "n")
             {
                 exit(0);
             }
