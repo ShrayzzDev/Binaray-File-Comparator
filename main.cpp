@@ -58,7 +58,7 @@ int main (void)
 
     // Save in this file the bytes that are diffrents.
     ofstream save_diffrences;
-    save_diffrences.open("./saves/test.txt", ios::out);
+    save_diffrences.open("byte_differences.txt", ios::out);
     if (! save_diffrences.is_open()){
         string continu;
         cerr << "couldn't open the file that save the wrong bytes, do you still want to continue ?" << endl;
