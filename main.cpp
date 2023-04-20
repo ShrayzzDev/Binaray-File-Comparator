@@ -13,7 +13,6 @@ void swapByteOrder(unsigned short & us)
 
 int main (void)
 {
-    cout << sizeof(unsigned int) << endl;
     string path1, path2, yes_or_not, ask_endian_swap1, ask_endian_swap2;
     cout << "Path of the first binary file: ";
     cin >> path1;
